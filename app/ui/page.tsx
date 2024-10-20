@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Building, Trees, Coffee, Music, Book, ShoppingBag } from 'lucide-react';
 
+
 const useScrollPosition = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
