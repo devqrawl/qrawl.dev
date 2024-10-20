@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock, SpaceIcon, ChevronRight } from 'lucide-react';
+import Image from 'next/image'
 
 const ColorfulText = ({ children, gradient }) => (
   <span className={`font-bold bg-clip-text text-transparent ${gradient}`}>
@@ -72,7 +73,7 @@ export default function AuthForm ({ isSignUp }){
         </form>
         <div className="mt-4 text-center text-gray-600">or</div>
         <GlowButton color="red-600" onClick={handleGoogleSignIn}>
-          <img src="/api/placeholder/20/20" alt="Google" className="inline-block mr-2" />
+          <Image src="/api/placeholder/20/20" alt="Google" className="inline-block mr-2" />
           Continue with Google
         </GlowButton>
         <GlowButton color="gray-800" onClick={handleGitHubSignIn}>
