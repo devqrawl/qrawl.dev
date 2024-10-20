@@ -1,7 +1,7 @@
-export default function Dashboard() {
+export default async function Dashboard() {
     return (
-        <div className="flex justify-center">
-            Welcome to DashBoard;
-        </div>
+        <>
+            Dashboard
+        </>
     )
 }
