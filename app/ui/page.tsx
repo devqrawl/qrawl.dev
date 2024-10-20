@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Building, Tree, Coffee, Music, Book, ShoppingBag } from 'lucide-react';
 
