@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
-import { MapPin, Building, Tree, Coffee, Music, Book, ShoppingBag } from 'lucide-react';
+import { MapPin, Building, Trees, Coffee, Music, Book, ShoppingBag } from 'lucide-react';
 
 const useScrollPosition = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -89,7 +89,7 @@ const VirtualCityExplorer = () => {
 
   const districts = [
     { name: "Downtown", icon: Building, description: "The heart of the city, filled with towering skyscrapers and bustling streets." },
-    { name: "Green Park", icon: Tree, description: "A tranquil oasis in the urban jungle, perfect for relaxation and outdoor activities." },
+    { name: "Green Park", icon: Trees, description: "A tranquil oasis in the urban jungle, perfect for relaxation and outdoor activities." },
     { name: "Café Quarter", icon: Coffee, description: "Charming streets lined with cozy cafés and artisanal bakeries." },
     { name: "Music Row", icon: Music, description: "The rhythm of the city comes alive with live music venues and recording studios." },
     { name: "Library Lane", icon: Book, description: "A haven for book lovers with historic libraries and quaint bookshops." },
