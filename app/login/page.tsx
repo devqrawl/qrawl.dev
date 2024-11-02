@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { User, Lock, Mail } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const InputField = ({ icon: Icon, type, placeholder, value, onChange }) => (
   <div className="mb-6 relative">
@@ -69,7 +70,7 @@ const AuthForm = ({ isSignUp }) => {
         </div>
         <div className="mt-6 space-y-4">
           <Button secondary onClick={() => console.log('Google sign in')}>
-            <img src="/api/placeholder/18/18" alt="Google" className="inline-block mr-2" />
+            <Image src="/api/placeholder/18/18" alt="Google" className="inline-block mr-2" />
             Continue with Google
           </Button>
           <Button secondary onClick={() => console.log('GitHub sign in')}>

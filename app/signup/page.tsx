@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import { User, Lock, Mail } from 'lucide-react';
 import Link from 'next/link';
+<<<<<<< HEAD
 import { CreateUser } from '@/lib/dynamodb';
+=======
+import Image from 'next/image';
+>>>>>>> 59d7fb024d2e756980b62e18e17cb5c1e110784e
 
 interface InputFieldProps {
     icon: React.ComponentType<any>;
@@ -98,7 +102,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ isSignUp }) => {
                 </div>
                 <div className="mt-6 space-y-4">
                     <Button secondary onClick={() => console.log('Google sign in')}>
-                        <img src="/api/placeholder/18/18" alt="Google" className="inline-block mr-2" />
+                        <Image src="/api/placeholder/18/18" alt="Google" className="inline-block mr-2" />
                         Continue with Google
                     </Button>
                     <Button secondary onClick={() => console.log('GitHub sign in')}>
