@@ -25,6 +25,7 @@ export const CreateUser = async (email: string, password: string) => {
       email: { S: email },
       username: { S: email },
       password: { S: password },
+      role: { S: "user" },
     },
   };
 
