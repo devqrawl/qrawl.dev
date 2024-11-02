@@ -2,9 +2,21 @@
 import React, { useState } from 'react';
 import { User, Lock, Mail } from 'lucide-react';
 import Link from 'next/link';
+<<<<<<< HEAD
+import { CreateUser } from '@/lib/dynamodb';
+=======
 import Image from 'next/image';
+>>>>>>> 59d7fb024d2e756980b62e18e17cb5c1e110784e
 
-const InputField = ({ icon: Icon, type, placeholder, value, onChange }) => (
+interface InputFieldProps {
+    icon: React.ComponentType<any>;
+    type: string;
+    placeholder: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const InputField: React.FC<InputFieldProps> = ({ icon: Icon, type, placeholder, value, onChange }) => (
     <div className="mb-6 relative">
         <Icon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
         <input
@@ -17,7 +29,13 @@ const InputField = ({ icon: Icon, type, placeholder, value, onChange }) => (
     </div>
 );
 
-const Button = ({ children, onClick, secondary = false }) => (
+interface ButtonProps {
+    children: React.ReactNode;
+    onClick: () => void;
+    secondary?: boolean;
+}
+
+const Button: React.FC<ButtonProps> = ({ children, onClick, secondary = false }) => (
     <button
         className={`w-full py-3 rounded-lg text-lg font-semibold transition-colors ${secondary
             ? 'bg-gray-700 text-white hover:bg-gray-600'
@@ -29,13 +47,27 @@ const Button = ({ children, onClick, secondary = false }) => (
     </button>
 );
 
-const AuthForm = ({ isSignUp }) => {
+interface AuthFormProps {
+    isSignUp: boolean;
+}
+
+const AuthForm: React.FC<AuthFormProps> = ({ isSignUp }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted', { email, password });
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        let CreateUserResponse;
+
+        if(email && password){
+            CreateUserResponse = await CreateUser(email, password);
+        }
+        if(CreateUserResponse){
+            console.log(CreateUserResponse);
+            alert("User created successfully");
+        }
+        
     };
 
     return (
@@ -44,7 +76,7 @@ const AuthForm = ({ isSignUp }) => {
                 <h2 className="text-3xl font-bold mb-6 text-center text-white">
                     {isSignUp ? 'Create Account' : 'Welcome Back'}
                 </h2>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <InputField
                         icon={Mail}
                         type="email"
@@ -79,13 +111,13 @@ const AuthForm = ({ isSignUp }) => {
                     </Button>
                 </div>
                 <div>
-                    <p className="mt-8 text-center text-gray-400">
+                    <div className="mt-8 text-center text-gray-400">
                         <p>Already have an account?</p>
                         <Link href="/login" className="text-blue-400 hover:underline">
                             <p>Login</p>
                         </Link>
 
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
